@@ -1,0 +1,5 @@
+name: Starframe
+machine_name: starframe
+version: 0.0.1
+requirements:
+  - hardpoint:^0.0.1
