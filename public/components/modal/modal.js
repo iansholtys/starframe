@@ -1,4 +1,5 @@
 (function ($) {
+  const NS = ".starframe-modal";
   const MODAL_ID = "starframe-enter-modal";
 
   function unmount() {
@@ -28,6 +29,11 @@
     $modal.append($panel).appendTo("body");
   }
 
-  $(window).on("genrpg:instance-entered", mount);
-  $(window).on("genrpg:instance-exited", unmount);
+  function teardown() {
+    unmount();
+    $(window).off(NS);
+  }
+
+  $(window).on("genrpg:instance-entered" + NS, mount);
+  $(window).on("genrpg:instance-exited" + NS, teardown);
 })(jQuery);
